@@ -3,8 +3,20 @@
 # Define the MAC address of the Bluetooth device
 device_mac="XX:XX:XX:XX:XX:XX"
 
+# Turn on Bluetooth
+echo -e "power on\n" | bluetoothctl
+
+# Wait for Bluetooth to turn on
+sleep 3
+
+# Scan for the Bluetooth device
+echo -e "scan on\n" | bluetoothctl
+
+# Wait for the scan to complete
+sleep 15
+
 # Connect to the Bluetooth device
-echo -e "power on\nconnect $device_mac\nquit" | bluetoothctl
+echo -e "connect $device_mac\nquit" | bluetoothctl
 
 # Wait for the connection to complete
 sleep 5
